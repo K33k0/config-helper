@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <main id="file">I am a test</main>
+    <script>
+        window.api.receive("fromMain", (data)=> {
+            console.log(`Received ${data} from main process`);
+        })
+
+        window.api.send("toMain", "some data");
+    </script>
+  </body>
+</html>
