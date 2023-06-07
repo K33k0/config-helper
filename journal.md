@@ -23,3 +23,9 @@ Interestingly, I get a module not found error for fs. This is within the preload
 Next up is displaying that output in the html body.
 
 Turns out, I need to use inter-process communication. Should have probably learned more about electron before jumping in. Doesn't look to bad though, similar to web sockets. 
+
+# Day 2
+
+After realising what I was doing just wasn't working, I did a little extra reading and found a [link](https://github.com/reZach/secure-electron-template/blob/master/docs/newtoelectron.md) which is apparently a good way to create secure electron apps. I've read through the example, which seems to make a little sense. I'll be keeping it open for a while for reference. It remind a little of creating WPF interfaces in C# (painful).
+
+Using the example, and making a couple minor tweaks, I can now output a txt file into the website

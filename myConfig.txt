@@ -1,1 +1,2 @@
-I am a temporary file. Used for testing purposes
+I am a temporary file.
+Used for testing purposes

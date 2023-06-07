@@ -1,7 +1,10 @@
-// preload.js
-// All the Node.js APIs are available in the preload process.
-const { contextBridge, ipcRenderer } = require('electron')
+const {
+    contextBridge,
+    ipcRenderer
+} = require("electron");
 
+// Expose protected methods that allow the renderer process to use
+// the ipcRenderer without exposing the entire object
 contextBridge.exposeInMainWorld(
     "api", {
         send: (channel, data) => {
@@ -20,17 +23,3 @@ contextBridge.exposeInMainWorld(
         }
     }
 );
-// It has the same sandbox as a Chrome extension.
-window.addEventListener('DOMContentLoaded', () => {
-    const replaceText = (selector, text) => {
-      const element = document.querySelector(selector)
-      if (element) element.innerText = text
-    }
-
-    ipcRenderer.send('read-file', './myConfig.txt')
-
-    ipcRenderer.on('file-data', (event, data)=> {
-        replaceText('body', data)
-    })
-  })
-
